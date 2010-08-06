@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20100806032008) do
     t.boolean  "remove_from_general"
     t.boolean  "email_magazine"
     t.boolean  "snail_mail_magazine"
+    t.boolean  "no_magazine"
     t.text     "comments"
     t.datetime "created_at"
     t.datetime "updated_at"

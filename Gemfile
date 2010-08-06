@@ -4,7 +4,7 @@ gem 'rails', '3.0.0.rc'
 
 #gem 'ruby-debug19', :require => 'ruby-debug', :group => :development
 
-gem 'mysql'
+gem 'mysql2'
 #gem 'mysql2'
 
 # Bundle edge Rails instead:

@@ -1,5 +1,113 @@
-<h1>New contact</h1>
+<div class="standard">
+  <h1><br/>Stay in touch with the Fisher House Foundation™</h1>
 
-<%= render 'form' %>
+  <p>This form is safe and secure and your privacy is important to us. Please see our privacy policy below.</p>
 
-<%= link_to 'Back', contacts_path %>
+  <%= form_for(@contact, :url => create_contact_path, :html => {:class => 'uniForm'}) do |f| %>
+      <h1>
+        <%= render '/shared/error_messages', :target => @contact, :header_message => nil, :div_class => 'form_h1', :message => 'Please review the following fields:' %>
+      </h1>
+
+      <fieldset>
+        <p><strong>Check all that apply:</strong></p>
+
+        <div id="contactCheckBoxes" class="ctrlHolder">
+          <%= f.check_box :update_contact_info %>
+          <span class="checkbox_text"> Update my contact information</span>
+          <br/>
+
+          <%= f.check_box :snail_mail_magazine %>
+          <span class="checkbox_text"> Mail me the Fisher House Magazine</span>
+          <br/>
+
+          <%= f.check_box :email_magazine %>
+          <span class="checkbox_text"> Email me the Fisher House Magazine</span>
+          <br/>
+
+          <%= f.check_box :no_magazine %>
+          <span class="checkbox_text"> Unsubscribe me from the Fisher House Magazine</span>
+          <br/>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <p><strong>Please provide information for contacting you:</strong></p>
+
+        <div class="ctrlHolder">
+          <%= f.label :first_name, "First Name: " %>
+          <%= f.text_field :first_name %>
+        </div>
+
+        <div class="ctrlHolder">
+          <%= f.label :last_name, "Last Name: " %>
+          <%= f.text_field :last_name %>
+        </div>
+
+        <div class="ctrlHolder">
+          <%= f.label :email, "Email: " %>
+          <%= f.text_field :email %>
+        </div>
+
+        <div class="ctrlHolder">
+          <%= f.label :address1, "Address 1: " %>
+          <%= f.text_field :address1 %>
+        </div>
+
+        <div class="ctrlHolder">
+          <%= f.label :address2, "Address 2: " %>
+          <%= f.text_field :address2 %>
+        </div>
+
+        <div class="ctrlHolder">
+          <%= f.label :city, "City: " %>
+          <%= f.text_field :city %> &nbsp;
+          <%= f.select(:state, Contact::STATES, :include_blank => '--') %>
+        </div>
+
+        <div class="ctrlHolder">
+          <%= f.label :zip, "Zipcode: " %>
+          <%= f.text_field :zip %>
+          <p class="formHint">(APO/FPO addresses supported)</p>
+        </div>
+
+        <div class="ctrlHolder">
+          <%= f.label :comments, 'Send us your comments or special instructions: (optional)' %>
+          <br/>
+          <%= f.text_area :comments, :cols => 64, :rows => 10 %>
+        </div>
+      </fieldset>
+
+      <%= raw recaptcha_tags %>
+
+      <div class="buttonHolder">
+        <%= f.submit "Submit" %>
+      </div>
+
+  <% end %>
+
+  <h1><br>Fisher House Foundation Privacy Policy</h1>
+
+  <p>Fisher House Foundation is committed to protecting your privacy and does not use this web site to collect any
+    personally identifiable information about you other than what you provide voluntarily. We do not sell, trade, or
+    provide your name or contact information with any other organization or individual, except in those cases when a
+    donor designates his or her contribution to a specific Fisher House.
+
+  <p>In those cases, we may provide contact information to the manager of the designated Fisher House in order to
+    acknowledge the donation. Managers are told they may not use this information for any type of solicitation.
+
+  <p>We do not use your personal information for direct mail, telephone solicitation, or any other purpose other than to
+    mail each donor a complimentary copy of Fisher House Magazine. Should you not want to receive a copy of our
+    magazine, we will delete your name and address upon receiving a request for deletion by using the above form.
+
+  <p>We do not use cookies. For organizations linked to our web site, please refer to their privacy statements as
+    contained on their websites. For individuals using our web site for donating, we use a service called "Give Direct,"
+    operated and maintained by Local and Independent Charities of America. Every secure page on the
+    <a href="http://www.lic.org" target="_blank">lic.org</a> website has been secured with a digital certificate by
+    VeriSign, Inc. The privacy policy for Give Direct can be found
+    <a href="https://www.givedirect.org/give/PrivacyPolicy.htm" target="_blank">here</a>.
+
+  <p>If you have questions regarding our Privacy Statement or its implementation, please contact us at
+    <a href="mailto:info@fisherhouse.org">info@fisherhouse.org</a>, or by mail at 111 Rockville Pike, Suite 420,
+    Rockville, Maryland 20850.<br><br><br></p>
+</div>
+

@@ -1,6 +1,6 @@
 class CreateContacts < ActiveRecord::Migration
   def self.up
-    create_table :contacts do |t|
+    create_table :contacts, :options => 'DEFAULT CHARSET=utf8' do |t|
       t.string :first_name
       t.string :last_name
       t.string :email
@@ -16,7 +16,7 @@ class CreateContacts < ActiveRecord::Migration
       t.boolean :remove_from_general
       t.boolean :email_magazine
       t.boolean :snail_mail_magazine
-      t.boolean :snail_mail_magazine
+      t.boolean :no_magazine
       t.text :comments
 
       t.timestamps

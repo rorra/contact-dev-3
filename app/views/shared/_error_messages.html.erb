@@ -1,0 +1,19 @@
+<% if target.errors.any? %>
+    <div id="errorExplanation" class="<%= div_class.blank? ? '' : div_class %>">
+      <%- unless defined?(header_message) && header_message.nil? %>
+          <%- if header_message.blank? %>
+              <h2><%= pluralize(target.errors.count, "error") %> prohibited this record from being saved:</h2>
+          <%- else %>
+              <h2><%= header_message %></h2>
+          <%- end %>
+      <%- end %>
+      <%- unless message.blank? %>
+          <p><%= message %></p>
+      <%- end %>
+      <ul>
+        <% target.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>

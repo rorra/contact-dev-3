@@ -6,7 +6,11 @@ ContactDev3::Application.routes.draw do
     end
   end
 
-  root :to => 'magazine#index'
+  match "/magazine/request" => "contacts#new", :as => 'new_contact'
+  match "/magazine/create" => "contacts#create", :as => 'create_contact'
+  match "/magazine/thank_you" => "contacts#thank_you", :as => 'thank_you_contacts'
+
+  root :to => 'contacts#new'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
