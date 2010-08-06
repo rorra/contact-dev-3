@@ -17,24 +17,14 @@ jQuery.fn.uniform = function(settings) {
 
   return this.each(function() {
     var form = jQuery(this);
-    form.submit(function(){
-      form.find(settings.field_selector).each(function(){
-        if($(this).val() == $(this).attr("default_value")) $(this).val("");
-      });
-    });
     // Select form fields and attach them higlighter functionality
     form.find(settings.field_selector).each(function(){
-      var default_value = $(this).val();
       var default_color = $(this).css("color");
-      if($(this).val() == default_value){$(this).css("color",settings.default_value_color);}
-      $(this).attr("default_value", default_value);
       $(this).focus(function() {
         form.find('.' + settings.focused_class).removeClass(settings.focused_class);
-        $(this).parent('div').addClass(settings.focused_class);
-        if($(this).val() == default_value){ $(this).val("");$(this).css("color",default_color); }
+        $(this).parents('div.ctrlHolder').addClass(settings.focused_class);
       }).blur(function() {
         form.find('.' + settings.focused_class).removeClass(settings.focused_class);
-        if($(this).val() == ""){$(this).css("color",settings.default_value_color);$(this).val(default_value);}
       });
     })
   });

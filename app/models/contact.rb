@@ -29,23 +29,26 @@ class Contact < ActiveRecord::Base
 
   validates_format_of :zip, :with => /\A[0-9]{5}(\-[0-9]{4})?\Z/i, :on => :create, :allow_nil => true, :allow_blank => true, :message => 'may be a 5 digit (e.g. 12345) or 5 digit + 4 digit extension (e.g. 12435-6789).'
 
+  attr_accessible :first_name, :last_name, :email, :address1, :address2, :city, :state, :zip, :country, :apo_fpo, :update_contact_info,
+          :add_to_general, :remove_from_general, :email_magazine, :snail_mail_magazine, :no_magazine, :comments
+
   #custom validation
   def one_or_more_checkboxes_present
-    errors.add_to_base('Please check at least one check box.') unless update_contact_info || snail_mail_magazine ||
+    errors.add(:base, 'Please check at least one check box.') unless update_contact_info || snail_mail_magazine ||
             email_magazine || no_magazine
   end
 
   #custom validation
   def no_checkbox_conflicts
     if (email_magazine || snail_mail_magazine) && no_magazine
-      errors.add_to_base('You have asked both to receive and not to receive our magazine.')
+      errors.add(:base, 'You have asked both to receive and not to receive our magazine.')
     end
   end
 
   #custom validation
   def email_or_address_present
     if email.blank? && address1.blank?
-      errors.add_to_base('Please provide us with an email address, a postal address, or both.')
+      errors.add(:base, 'Please provide us with an email address, a postal address, or both.')
     end
   end
 
@@ -53,7 +56,7 @@ class Contact < ActiveRecord::Base
   def all_or_none_address_fields
     if ((address1.blank? && address2.blank?) || city.blank? || state.blank? || zip.blank?) &&
             !(address1.blank? && address2.blank? && city.blank? && state.blank? && zip.blank?)
-      errors.add_to_base('Your postal address is incomplete.')
+      errors.add(:base, 'Your postal address is incomplete.')
     end
   end
 end

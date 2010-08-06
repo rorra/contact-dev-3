@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.0.rc'
 
-#gem 'ruby-debug19', :require => 'ruby-debug', :group => :development
+gem 'ruby-debug19', :require => 'ruby-debug', :group => :development
 
 gem 'mysql2'
 #gem 'mysql2'
