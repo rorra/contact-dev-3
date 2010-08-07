@@ -1,5 +1,4 @@
 <div class="standard">
-  <h1><br/>Stay in touch with the Fisher House Foundation™</h1>
 
   <p>This form is safe and secure and your privacy is important to us. Please see our privacy policy below.</p>
 
@@ -17,15 +16,15 @@
           <br/>
 
           <%= f.check_box :snail_mail_magazine %>
-          <span class="checkbox_text"> Mail me the Fisher House Magazine</span>
+          <span class="checkbox_text"> Mail me the Fisher House Magazine, <em>The Patriot</em></span>
           <br/>
 
           <%= f.check_box :email_magazine %>
-          <span class="checkbox_text"> Email me the Fisher House Magazine</span>
+          <span class="checkbox_text"> Email me the Fisher House Magazine, <em>The Patriot</em></span>
           <br/>
 
           <%= f.check_box :no_magazine %>
-          <span class="checkbox_text"> Unsubscribe me from the Fisher House Magazine</span>
+          <span class="checkbox_text"> Unsubscribe me from the Fisher House Magazine, <em>The Patriot</em></span>
           <br/>
         </div>
       </fieldset>
@@ -60,7 +59,10 @@
 
         <div class="ctrlHolder">
           <%= f.label :city, "City: " %>
-          <%= f.text_field :city %> &nbsp;
+          <%= f.text_field :city %>
+        </div>
+        <div class="ctrlHolder">
+          <%= f.label :state, "State: " %>
           <%= f.select(:state, Contact::STATES, :include_blank => '--') %>
         </div>
 
@@ -79,13 +81,15 @@
 
       <%= raw recaptcha_tags %>
 
-      <div class="buttonHolder">
-        <%= f.submit "Submit" %>
+      <br/>
+      <div style="text-align: right; margin-right: 25px">
+      <input type="submit" class="contact_submit" value="" />
       </div>
+
 
   <% end %>
 
-  <h1><br>Fisher House Foundation Privacy Policy</h1>
+  <h2>Fisher House Foundation Privacy Policy</h2>
 
   <p>Fisher House Foundation is committed to protecting your privacy and does not use this web site to collect any
     personally identifiable information about you other than what you provide voluntarily. We do not sell, trade, or

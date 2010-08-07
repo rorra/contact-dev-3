@@ -1,6 +1,9 @@
 class ContactsController < ApplicationController
   before_filter :set_page_title
 
+  ssl_required :new, :create
+  ssl_allowed :thank_you
+
   caches_page :new, :thank_you
 
   def new

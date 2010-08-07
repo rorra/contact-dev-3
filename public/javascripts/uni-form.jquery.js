@@ -12,7 +12,7 @@ jQuery.fn.uniform = function(settings) {
     focused_class  : 'focused',
     holder_class   : 'element',
     field_selector : ':text, textarea, input[type=checkbox]',
-    default_value_color: "#AFAFAF"
+    default_value_color: "#FFFFCC"
   }, settings);
 
   return this.each(function() {
