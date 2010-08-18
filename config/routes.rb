@@ -12,6 +12,8 @@ ContactDev3::Application.routes.draw do
 
   root :to => 'contacts#new'
 
+  match '/simple_captcha(/:action)' => 'simple_captcha', :as => :simple_captcha
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

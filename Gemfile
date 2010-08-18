@@ -6,6 +6,8 @@ gem 'ruby-debug19', :require => 'ruby-debug', :group => :development
 
 gem 'mysql2'
 
+gem 'rmagick'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
