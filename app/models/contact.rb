@@ -32,7 +32,7 @@ class Contact < ActiveRecord::Base
   ]
 
   attr_accessible :first_name, :last_name, :email, :address1, :address2, :city, :state, :zip, :country, :apo_fpo, :update_contact_info,
-                  :add_to_general, :remove_from_general, :email_magazine, :snail_mail_magazine, :no_magazine, :comments
+                  :add_to_general, :remove_from_general, :email_magazine, :snail_mail_magazine, :no_magazine, :comments, :captcha, :captcha_key
 
 
   #custom validation
