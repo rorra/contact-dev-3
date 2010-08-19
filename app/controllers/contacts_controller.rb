@@ -14,7 +14,7 @@ class ContactsController < ApplicationController
     @contact = Contact.new(params[:contact])
 
     #if verify_recaptcha(:model => @contact, :message => 'The verification phrase at the end was misspelled') && @contact.save
-    if @contact.save
+    if @contact.save_with_captcha
       redirect_to :action => 'thank_you'
     else
       render :action => 'new'

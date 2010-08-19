@@ -20,6 +20,10 @@ class Contact < ActiveRecord::Base
 
   validates_format_of :city, :with => /\A[a-z \.-]+\Z/i, :on => :create, :allow_nil => true, :allow_blank => true, :message => 'may contain letters, hyphens, and spaces.'
 
+  validates_format_of :zip, :with => /\A[0-9]{5}(\-[0-9]{4})?\Z/i, :on => :create, :allow_nil => true, :allow_blank => true, :message => 'may be a 5 digit (e.g. 12345) or 5 digit + 4 digit extension (e.g. 12435-6789).'
+
+  apply_simple_captcha :message => '- please enter the number from the image below.'
+
   #for use in contact form pulldown
   STATES = ["AA", "AE", "AP", "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FL", "GA",
             "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS",
@@ -27,10 +31,9 @@ class Contact < ActiveRecord::Base
             "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"
   ]
 
-  validates_format_of :zip, :with => /\A[0-9]{5}(\-[0-9]{4})?\Z/i, :on => :create, :allow_nil => true, :allow_blank => true, :message => 'may be a 5 digit (e.g. 12345) or 5 digit + 4 digit extension (e.g. 12435-6789).'
-
   attr_accessible :first_name, :last_name, :email, :address1, :address2, :city, :state, :zip, :country, :apo_fpo, :update_contact_info,
-          :add_to_general, :remove_from_general, :email_magazine, :snail_mail_magazine, :no_magazine, :comments
+                  :add_to_general, :remove_from_general, :email_magazine, :snail_mail_magazine, :no_magazine, :comments
+
 
   #custom validation
   def one_or_more_checkboxes_present

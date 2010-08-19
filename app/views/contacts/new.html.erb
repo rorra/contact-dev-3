@@ -79,7 +79,11 @@
         </div>
       </fieldset>
 
-      <%= show_simple_captcha %>
+      <%= show_simple_captcha(:object => 'contact',
+                              :code_type => 'numeric',
+                              :image_style => 'random',
+                              :distortion => '',
+                              :label => 'enter the number from the image') %>
 
       <div style="clear: both;, height: 20px">&nbsp;</div>
       
