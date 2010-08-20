@@ -8,6 +8,11 @@ gem 'mysql2'
 
 gem 'rmagick'
 
+group :test, :development do
+  gem "rspec-rails", ">= 2.0.0.beta.19"
+end
+
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
