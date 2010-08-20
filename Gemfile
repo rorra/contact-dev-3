@@ -2,13 +2,12 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.0.rc'
 
-gem 'ruby-debug19', :require => 'ruby-debug', :group => :development
-
 gem 'mysql2'
 
 gem 'rmagick'
 
 group :test, :development do
+  gem 'ruby-debug19', :require => 'ruby-debug'
   gem "rspec-rails", ">= 2.0.0.beta.19"
 end
 
