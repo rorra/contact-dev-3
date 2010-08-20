@@ -1,11 +1,4 @@
 ContactDev3::Application.routes.draw do
-  resources :contacts, :as => 'magazine', :path_names => {:new => 'request'}, :except => [:delete] do
-    collection do
-      get :thank_you
-      get :maintenance
-    end
-  end
-
   match "/magazine/request" => "contacts#new", :as => 'new_contact'
   match "/magazine/create" => "contacts#create", :as => 'create_contact'
   match "/magazine/thank_you" => "contacts#thank_you", :as => 'thank_you_contacts'

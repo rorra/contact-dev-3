@@ -3,33 +3,16 @@ require "spec_helper"
 describe ContactsController do
   describe "routing" do
 
-    it "recognizes and generates #index" do
-      {:get => "/examples"}.should route_to(:controller => "examples", :action => "index")
+    it "recognizes /magazine/request" do
+      {:get => "/magazine/request"}.should route_to(:controller => "contacts", :action => "new")
     end
 
-    it "recognizes and generates #new" do
-      {:get => "/examples/new"}.should route_to(:controller => "examples", :action => "new")
+    it "recognizes /magazine/thank_you" do
+      {:get => "/magazine/thank_you"}.should route_to(:controller => "contacts", :action => "thank_you")
     end
 
-    it "recognizes and generates #show" do
-      {:get => "/examples/1"}.should route_to(:controller => "examples", :action => "show", :id => "1")
+    it "recognizes /magazine/create" do
+      {:post => "/magazine/create"}.should route_to(:controller => "contacts", :action => "create")
     end
-
-    it "recognizes and generates #edit" do
-      {:get => "/examples/1/edit"}.should route_to(:controller => "examples", :action => "edit", :id => "1")
-    end
-
-    it "recognizes and generates #create" do
-      {:post => "/examples"}.should route_to(:controller => "examples", :action => "create")
-    end
-
-    it "recognizes and generates #update" do
-      {:put => "/examples/1"}.should route_to(:controller => "examples", :action => "update", :id => "1")
-    end
-
-    it "recognizes and generates #destroy" do
-      {:delete => "/examples/1"}.should route_to(:controller => "examples", :action => "destroy", :id => "1")
-    end
-
   end
 end
